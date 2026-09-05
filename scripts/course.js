@@ -1,9 +1,4 @@
-// ======================================
-// WDD231 COURSE DATA
-// ======================================
-
 const courses = [
-
     {
         subject: "CSE",
         number: 110,
@@ -11,7 +6,6 @@ const courses = [
         credits: 2,
         completed: true
     },
-
     {
         subject: "WDD",
         number: 130,
@@ -19,7 +13,6 @@ const courses = [
         credits: 2,
         completed: true
     },
-
     {
         subject: "CSE",
         number: 111,
@@ -27,7 +20,6 @@ const courses = [
         credits: 2,
         completed: true
     },
-
     {
         subject: "CSE",
         number: 210,
@@ -35,7 +27,6 @@ const courses = [
         credits: 2,
         completed: true
     },
-
     {
         subject: "WDD",
         number: 131,
@@ -43,7 +34,6 @@ const courses = [
         credits: 2,
         completed: true
     },
-
     {
         subject: "WDD",
         number: 231,
@@ -51,110 +41,62 @@ const courses = [
         credits: 2,
         completed: false
     }
-
 ];
 
 
-// ======================================
-// GET HTML ELEMENTS
-// ======================================
+// Get elements from the HTML
+const courseContainer = document.querySelector("#courseContainer");
+const creditDisplay = document.querySelector("#creditDisplay");
 
-const courseContainer =
-    document.querySelector("#courseContainer");
-
-const creditDisplay =
-    document.querySelector("#creditDisplay");
-
-const allButton =
-    document.querySelector("#allButton");
-
-const wddButton =
-    document.querySelector("#wddButton");
-
-const cseButton =
-    document.querySelector("#cseButton");
+const allButton = document.querySelector("#allButton");
+const wddButton = document.querySelector("#wddButton");
+const cseButton = document.querySelector("#cseButton");
 
 
-// ======================================
-// DISPLAY COURSES
-// ======================================
-
+// Display courses
 function displayCourses(courseList) {
 
-    // Clear existing courses
     courseContainer.innerHTML = "";
 
-
-    // Create a card for every course
     courseList.forEach(course => {
 
         const card = document.createElement("div");
 
         card.classList.add("course-card");
 
-
-        // Add completed/not completed class
         if (course.completed) {
-
             card.classList.add("completed");
-
         } else {
-
             card.classList.add("not-completed");
-
         }
 
-
-        // Course information
         card.innerHTML = `
             <h3>${course.subject} ${course.number}</h3>
-
             <p>${course.title}</p>
-
-            <p>
-                <strong>${course.credits}</strong>
-                Credits
-            </p>
+            <p><strong>${course.credits}</strong> Credits</p>
         `;
 
-
-        // Add card to page
         courseContainer.appendChild(card);
-
     });
 
 
-    // ==================================
-    // CALCULATE TOTAL CREDITS
-    // ==================================
-
+    // Calculate total credits
     const totalCredits = courseList.reduce(
         (total, course) => total + course.credits,
         0
     );
 
-
-    creditDisplay.textContent =
-        `Total Credits: ${totalCredits}`;
-
+    creditDisplay.textContent = `Total Credits: ${totalCredits}`;
 }
 
 
-// ======================================
-// ALL COURSES BUTTON
-// ======================================
-
+// All courses
 allButton.addEventListener("click", () => {
-
     displayCourses(courses);
-
 });
 
 
-// ======================================
-// WDD COURSES BUTTON
-// ======================================
-
+// WDD courses
 wddButton.addEventListener("click", () => {
 
     const wddCourses = courses.filter(
@@ -162,14 +104,10 @@ wddButton.addEventListener("click", () => {
     );
 
     displayCourses(wddCourses);
-
 });
 
 
-// ======================================
-// CSE COURSES BUTTON
-// ======================================
-
+// CSE courses
 cseButton.addEventListener("click", () => {
 
     const cseCourses = courses.filter(
@@ -177,12 +115,8 @@ cseButton.addEventListener("click", () => {
     );
 
     displayCourses(cseCourses);
-
 });
 
 
-// ======================================
-// INITIAL DISPLAY
-// ======================================
-
+// Display all courses when page loads
 displayCourses(courses);

@@ -1,16 +1,9 @@
-// ======================================
-// CURRENT YEAR
-// ======================================
-
+// Get the current year
 const currentYear = new Date().getFullYear();
 
-document.querySelector("#currentyear").textContent =
-    currentYear;
+document.querySelector("#currentyear").textContent = currentYear;
 
 
-// ======================================
-// LAST MODIFIED
-// ======================================
-
+// Display the date the page was last modified
 document.querySelector("#lastModified").textContent =
     document.lastModified;
