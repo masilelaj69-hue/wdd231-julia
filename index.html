@@ -1,146 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Julia Masilela's WDD231 Web Development homepage">
+
+    <meta name="description"
+        content="Julia Masilela's WDD231 Web Development homepage">
+
     <meta name="author" content="Julia Masilela">
 
     <title>Julia Masilela | WDD231</title>
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="styles/small.css">
     <link rel="stylesheet" href="styles/larger.css">
 
+    <!-- JavaScript -->
     <script src="scripts/navigation.js" defer></script>
     <script src="scripts/dates.js" defer></script>
+    <script src="scripts/courses.js" defer></script>
 </head>
 
 <body>
 
+    <!-- =========================
+         HEADER
+    ========================== -->
     <header>
-        <div class="header-content">
-            <img src="images/profile.jpg" alt="Profile photo of Julia Masilela" class="profile-image">
 
-            <div>
-                <h1>Julia Masilela</h1>
-                <p>Web and Computer Programming</p>
-            </div>
+        <div class="profile">
+
+            <img src="images/profile.jpg"
+                alt="Profile photo of Julia Masilela">
+
+            <h1>Julia Masilela</h1>
+
         </div>
 
-        <button id="menu-button" aria-label="Open navigation menu">
+        <button id="menu" aria-label="Open navigation menu">
             ☰
         </button>
 
-        <nav id="navigation">
-            <a href="index.html" class="active">Home</a>
-            <a href="#about">About Me</a>
+        <nav>
+            <ul id="nav-list">
+
+                <li>
+                    <a href="index.html" class="active">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html">
+                        About Me
+                    </a>
+                </li>
+
+            </ul>
         </nav>
+
     </header>
 
+
+    <!-- =========================
+         MAIN
+    ========================== -->
     <main>
 
-        <section id="about" class="about-section">
+        <h2>Home</h2>
+
+
+        <!-- =========================
+             ABOUT ME
+        ========================== -->
+        <section class="about-section">
+
             <h2>About Me</h2>
 
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Hello! My name is Julia Masilela.</h3>
+            <p>
+                Hello! My name is <strong>Julia Masilela</strong>.
+                I am currently studying Web Development at BYU–Idaho.
+                I enjoy learning about web development, programming,
+                and creating websites that are useful, accessible,
+                and easy to use.
+            </p>
 
-                    <p>
-                        I am currently studying Software Development at BYU–Idaho.
-                        I am passionate about web development, programming, and
-                        learning new technologies. I enjoy building websites and
-                        developing my skills in HTML, CSS, JavaScript, and programming.
-                    </p>
-                </div>
+            <p>
+                I am continuously developing my technical skills and
+                gaining experience with HTML, CSS, JavaScript,
+                Git, and GitHub.
+            </p>
 
-                <div class="student-card">
-                    <img src="images/profile.jpg"
-                         alt="Profile photo of Julia Masilela"
-                         class="student-avatar">
-
-                    <h3>Julia Masilela</h3>
-                    <p>Software Development Student</p>
-                </div>
-            </div>
         </section>
 
+
+        <!-- =========================
+             STUDENT PROFILE
+        ========================== -->
+        <section class="student-section">
+
+            <h2>Student Profile</h2>
+
+            <div class="student-profile">
+
+                <img src="images/profile.jpg"
+                    alt="Julia Masilela student profile photo">
+
+                <div>
+
+                    <h3>Julia Masilela</h3>
+
+                    <p>
+                        Web Development Student
+                    </p>
+
+                    <p>
+                        BYU–Idaho
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CERTIFICATE
+        ========================== -->
         <section class="certificate-section">
+
             <h2>Web and Computer Programming Certificate</h2>
 
             <div class="course-buttons">
-                <button id="allButton">All Courses</button>
-                <button id="wddButton">WDD Courses</button>
-                <button id="cseButton">CSE Courses</button>
-            </div>
 
-            <div id="course-container" class="course-container">
+                <button id="allButton">
+                    All Courses
+                </button>
 
-                <article class="course-card">
-                    <h3>CSE 110</h3>
-                    <p>Introduction to Programming</p>
-                    <span>2 Credits</span>
-                </article>
+                <button id="wddButton">
+                    WDD Courses
+                </button>
 
-                <article class="course-card">
-                    <h3>WDD 130</h3>
-                    <p>Web Fundamentals</p>
-                    <span>2 Credits</span>
-                </article>
-
-                <article class="course-card">
-                    <h3>CSE 111</h3>
-                    <p>Programming with Functions</p>
-                    <span>2 Credits</span>
-                </article>
-
-                <article class="course-card">
-                    <h3>CSE 210</h3>
-                    <p>Programming with Classes</p>
-                    <span>2 Credits</span>
-                </article>
-
-                <article class="course-card">
-                    <h3>WDD 131</h3>
-                    <p>Dynamic Web Fundamentals</p>
-                    <span>2 Credits</span>
-                </article>
-
-                <article class="course-card">
-                    <h3>WDD 231</h3>
-                    <p>Frontend Web Development I</p>
-                    <span>2 Credits</span>
-                </article>
+                <button id="cseButton">
+                    CSE Courses
+                </button>
 
             </div>
 
-            <p class="total-credits">
-                Total Credits: <strong>12</strong>
+
+            <!-- Courses are displayed here by JavaScript -->
+            <div id="courseContainer"></div>
+
+            <p id="creditDisplay">
+                Total Credits: 0
             </p>
+
         </section>
 
     </main>
 
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
     <footer>
+
         <div class="social-links">
-            <a href="#" target="_blank" rel="noopener noreferrer">GitHub profile</a>
-            <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn profile</a>
-            <a href="#" target="_blank" rel="noopener noreferrer">Facebook profile</a>
+
+            <a href="#" aria-label="Julia Masilela GitHub profile">
+                GitHub profile
+            </a>
+
+            <a href="#" aria-label="Julia Masilela LinkedIn profile">
+                LinkedIn profile
+            </a>
+
         </div>
 
         <p>
-            © <span id="currentyear"></span> Julia Masilela | South Africa
+            &copy;
+            <span id="currentyear"></span>
+            Julia Masilela | South Africa
         </p>
 
         <p>
             Last Modified:
             <span id="lastModified"></span>
         </p>
+
     </footer>
 
 </body>
+
 </html>
