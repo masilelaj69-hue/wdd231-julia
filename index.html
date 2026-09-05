@@ -1,48 +1,146 @@
-Home
-About Me
-Hello! My name is Believe Egwabor. I am currently studying Software Development at BYU–Idaho. I enjoy web development, programming, and continuously learning new technologies.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Julia Masilela's WDD231 Web Development homepage">
+    <meta name="author" content="Julia Masilela">
 
-Student Avatar
-Profile avatar
-Web and Computer Programming Certificate
-All Courses
-WDD Courses
-CSE Courses
-CSE 110
-Introduction to Programming
+    <title>Julia Masilela | WDD231</title>
 
-2 Credits
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-WDD 130
-Web Fundamentals
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
 
-2 Credits
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/dates.js" defer></script>
+</head>
 
-CSE 111
-Programming with Functions
+<body>
 
-2 Credits
+    <header>
+        <div class="header-content">
+            <img src="images/profile.jpg" alt="Profile photo of Julia Masilela" class="profile-image">
 
-CSE 210
-Programming with Classes
+            <div>
+                <h1>Julia Masilela</h1>
+                <p>Web and Computer Programming</p>
+            </div>
+        </div>
 
-2 Credits
+        <button id="menu-button" aria-label="Open navigation menu">
+            ☰
+        </button>
 
-WDD 131
-Dynamic Web Fundamentals
+        <nav id="navigation">
+            <a href="index.html" class="active">Home</a>
+            <a href="#about">About Me</a>
+        </nav>
+    </header>
 
-2 Credits
+    <main>
 
-WDD 231
-Frontend Web Development I
+        <section id="about" class="about-section">
+            <h2>About Me</h2>
 
-2 Credits
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Hello! My name is Julia Masilela.</h3>
 
-Total Credits: 12
+                    <p>
+                        I am currently studying Software Development at BYU–Idaho.
+                        I am passionate about web development, programming, and
+                        learning new technologies. I enjoy building websites and
+                        developing my skills in HTML, CSS, JavaScript, and programming.
+                    </p>
+                </div>
 
-GitHub profile
-LinkedIn profile
-Facebook profile
-© 2026 Believe Egwabor | Nigeria
+                <div class="student-card">
+                    <img src="images/profile.jpg"
+                         alt="Profile photo of Julia Masilela"
+                         class="student-avatar">
 
-Last Modified: 08/13/2026 14:49:44
+                    <h3>Julia Masilela</h3>
+                    <p>Software Development Student</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="certificate-section">
+            <h2>Web and Computer Programming Certificate</h2>
+
+            <div class="course-buttons">
+                <button id="allButton">All Courses</button>
+                <button id="wddButton">WDD Courses</button>
+                <button id="cseButton">CSE Courses</button>
+            </div>
+
+            <div id="course-container" class="course-container">
+
+                <article class="course-card">
+                    <h3>CSE 110</h3>
+                    <p>Introduction to Programming</p>
+                    <span>2 Credits</span>
+                </article>
+
+                <article class="course-card">
+                    <h3>WDD 130</h3>
+                    <p>Web Fundamentals</p>
+                    <span>2 Credits</span>
+                </article>
+
+                <article class="course-card">
+                    <h3>CSE 111</h3>
+                    <p>Programming with Functions</p>
+                    <span>2 Credits</span>
+                </article>
+
+                <article class="course-card">
+                    <h3>CSE 210</h3>
+                    <p>Programming with Classes</p>
+                    <span>2 Credits</span>
+                </article>
+
+                <article class="course-card">
+                    <h3>WDD 131</h3>
+                    <p>Dynamic Web Fundamentals</p>
+                    <span>2 Credits</span>
+                </article>
+
+                <article class="course-card">
+                    <h3>WDD 231</h3>
+                    <p>Frontend Web Development I</p>
+                    <span>2 Credits</span>
+                </article>
+
+            </div>
+
+            <p class="total-credits">
+                Total Credits: <strong>12</strong>
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="#" target="_blank" rel="noopener noreferrer">GitHub profile</a>
+            <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn profile</a>
+            <a href="#" target="_blank" rel="noopener noreferrer">Facebook profile</a>
+        </div>
+
+        <p>
+            © <span id="currentyear"></span> Julia Masilela | South Africa
+        </p>
+
+        <p>
+            Last Modified:
+            <span id="lastModified"></span>
+        </p>
+    </footer>
+
+</body>
+</html>
