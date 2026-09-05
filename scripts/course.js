@@ -1,4 +1,9 @@
+// ======================================
+// WDD231 COURSE DATA
+// ======================================
+
 const courses = [
+
     {
         subject: "CSE",
         number: 110,
@@ -46,12 +51,13 @@ const courses = [
         credits: 2,
         completed: false
     }
+
 ];
 
 
-// ===============================
-// Elements
-// ===============================
+// ======================================
+// GET HTML ELEMENTS
+// ======================================
 
 const courseContainer =
     document.querySelector("#courseContainer");
@@ -69,20 +75,25 @@ const cseButton =
     document.querySelector("#cseButton");
 
 
-// ===============================
-// Display Courses
-// ===============================
+// ======================================
+// DISPLAY COURSES
+// ======================================
 
 function displayCourses(courseList) {
 
+    // Clear existing courses
     courseContainer.innerHTML = "";
 
+
+    // Create a card for every course
     courseList.forEach(course => {
 
         const card = document.createElement("div");
 
         card.classList.add("course-card");
 
+
+        // Add completed/not completed class
         if (course.completed) {
 
             card.classList.add("completed");
@@ -93,34 +104,45 @@ function displayCourses(courseList) {
 
         }
 
+
+        // Course information
         card.innerHTML = `
             <h3>${course.subject} ${course.number}</h3>
+
             <p>${course.title}</p>
-            <p><strong>${course.credits}</strong> Credits</p>
+
+            <p>
+                <strong>${course.credits}</strong>
+                Credits
+            </p>
         `;
 
+
+        // Add card to page
         courseContainer.appendChild(card);
 
     });
 
 
-    // ===============================
-    // Total Credits
-    // ===============================
+    // ==================================
+    // CALCULATE TOTAL CREDITS
+    // ==================================
 
     const totalCredits = courseList.reduce(
         (total, course) => total + course.credits,
         0
     );
 
+
     creditDisplay.textContent =
         `Total Credits: ${totalCredits}`;
+
 }
 
 
-// ===============================
-// Buttons
-// ===============================
+// ======================================
+// ALL COURSES BUTTON
+// ======================================
 
 allButton.addEventListener("click", () => {
 
@@ -129,28 +151,38 @@ allButton.addEventListener("click", () => {
 });
 
 
+// ======================================
+// WDD COURSES BUTTON
+// ======================================
+
 wddButton.addEventListener("click", () => {
 
-    const wddCourses =
-        courses.filter(course => course.subject === "WDD");
+    const wddCourses = courses.filter(
+        course => course.subject === "WDD"
+    );
 
     displayCourses(wddCourses);
 
 });
 
 
+// ======================================
+// CSE COURSES BUTTON
+// ======================================
+
 cseButton.addEventListener("click", () => {
 
-    const cseCourses =
-        courses.filter(course => course.subject === "CSE");
+    const cseCourses = courses.filter(
+        course => course.subject === "CSE"
+    );
 
     displayCourses(cseCourses);
 
 });
 
 
-// ===============================
-// Initial Display
-// ===============================
+// ======================================
+// INITIAL DISPLAY
+// ======================================
 
 displayCourses(courses);

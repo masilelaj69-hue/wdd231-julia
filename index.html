@@ -28,19 +28,17 @@
     <!-- JavaScript -->
     <script src="scripts/navigation.js" defer></script>
     <script src="scripts/dates.js" defer></script>
-    <script src="scripts/courses.js" defer></script>
+    <script src="scripts/course.js" defer></script>
 </head>
 
 <body>
 
-    <!-- =========================
-         HEADER
-    ========================== -->
+    <!-- HEADER -->
     <header>
 
         <div class="profile">
 
-            <img src="images/profile.jpg"
+            <img src="images/profile.png"
                 alt="Profile photo of Julia Masilela">
 
             <h1>Julia Masilela</h1>
@@ -72,17 +70,12 @@
     </header>
 
 
-    <!-- =========================
-         MAIN
-    ========================== -->
+    <!-- MAIN -->
     <main>
 
         <h2>Home</h2>
 
-
-        <!-- =========================
-             ABOUT ME
-        ========================== -->
+        <!-- ABOUT ME -->
         <section class="about-section">
 
             <h2>About Me</h2>
@@ -104,16 +97,14 @@
         </section>
 
 
-        <!-- =========================
-             STUDENT PROFILE
-        ========================== -->
+        <!-- STUDENT PROFILE -->
         <section class="student-section">
 
             <h2>Student Profile</h2>
 
             <div class="student-profile">
 
-                <img src="images/profile.jpg"
+                <img src="images/profile.png"
                     alt="Julia Masilela student profile photo">
 
                 <div>
@@ -135,31 +126,29 @@
         </section>
 
 
-        <!-- =========================
-             CERTIFICATE
-        ========================== -->
+        <!-- CERTIFICATE -->
         <section class="certificate-section">
 
             <h2>Web and Computer Programming Certificate</h2>
 
             <div class="course-buttons">
 
-                <button id="allButton">
+                <button id="allButton" type="button">
                     All Courses
                 </button>
 
-                <button id="wddButton">
+                <button id="wddButton" type="button">
                     WDD Courses
                 </button>
 
-                <button id="cseButton">
+                <button id="cseButton" type="button">
                     CSE Courses
                 </button>
 
             </div>
 
 
-            <!-- Courses are displayed here by JavaScript -->
+            <!-- Courses appear here -->
             <div id="courseContainer"></div>
 
             <p id="creditDisplay">
@@ -171,9 +160,7 @@
     </main>
 
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
+    <!-- FOOTER -->
     <footer>
 
         <div class="social-links">
