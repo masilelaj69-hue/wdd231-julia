@@ -1,12 +1,18 @@
 const menuButton = document.querySelector("#menu");
-const navigation = document.querySelector("#navMenu");
+const navMenu = document.querySelector("#navMenu");
 
 menuButton.addEventListener("click", () => {
-    navigation.classList.toggle("open");
 
-    if (navigation.classList.contains("open")) {
-        menuButton.innerHTML = "&times;";
+    const isOpen = navMenu.classList.toggle("open");
+
+    menuButton.setAttribute("aria-expanded", isOpen);
+
+    if (isOpen) {
+        menuButton.setAttribute("aria-label", "Close navigation menu");
+        menuButton.textContent = "✕";
     } else {
-        menuButton.innerHTML = "&#9776;";
+        menuButton.setAttribute("aria-label", "Open navigation menu");
+        menuButton.textContent = "☰";
     }
+
 });

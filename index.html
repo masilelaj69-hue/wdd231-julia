@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to Believe Egwabor's WDD 231 course home page featuring web development projects, programming coursework, and responsive design assignments.">
+
+    <meta name="description"
+        content="Believe Egwabor's WDD 231 course home page featuring web development coursework, projects, and programming studies.">
+
     <meta name="author" content="Believe Egwabor">
 
-    <title>WDD 231 | Home</title>
+    <title>WDD 231 | Course Home</title>
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="styles/normalize.css">
@@ -27,98 +31,162 @@
 <body>
 
 <header>
+    <div class="site-header">
 
-    <div class="logo">
-        <img src="images/logo.png" alt="Site Logo" width="45" height="45">
-        <span>Believe Egwabor</span>
+        <div class="brand">
+            <img src="images/logo.svg"
+                alt="Believe Egwabor logo"
+                width="50"
+                height="50">
+
+            <span>Believe Egwabor</span>
+        </div>
+
+        <button id="menu"
+                class="menu-button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="navMenu">
+            ☰
+        </button>
+
     </div>
-
-    <button id="menu" aria-label="Menu">&#9776;</button>
 
     <nav id="navMenu">
         <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="chamber/index.html">Chamber</a></li>
-            <li><a href="final/index.html">Final</a></li>
+            <li>
+                <a href="index.html" class="active">Home</a>
+            </li>
+
+            <li>
+                <a href="chamber/index.html">Chamber</a>
+            </li>
+
+            <li>
+                <a href="final/index.html">Final</a>
+            </li>
         </ul>
     </nav>
-
 </header>
+
 
 <main>
 
-<h1>Home</h1>
+    <h1>Home</h1>
 
-<div class="grid">
+    <div class="home-grid">
 
-<section class="card">
-<h2>About Me</h2>
+        <section class="card">
+            <h2>About Me</h2>
 
-<p>
-Hello! My name is Believe Egwabor. I am currently studying Software Development
-at BYU–Idaho. I enjoy web development, programming, and continuously learning
-new technologies.
-</p>
+            <p>
+                Hello! My name is Believe Egwabor. I am currently studying
+                Software Development at BYU-Idaho. I enjoy learning about
+                web development, programming, and new technologies.
+            </p>
 
-</section>
+            <p>
+                This page contains information about my coursework and
+                progress toward the Web and Computer Programming certificate.
+            </p>
+        </section>
 
-<section class="card">
 
-<h2>Student Avatar</h2>
+        <section class="card student-card">
+            <h2>Student Avatar</h2>
 
-<img src="images/avatar.png" alt="Profile avatar" class="profile">
+            <img src="images/avatar.png"
+                alt="Student avatar"
+                class="profile">
+        </section>
 
-</section>
+    </div>
 
-</div>
 
-<section class="card">
+    <section class="card certificate">
 
-<h2>Web and Computer Programming Certificate</h2>
+        <h2>Web and Computer Programming Certificate</h2>
 
-<div class="buttons">
+        <div class="course-buttons">
 
-<button id="all">All Courses</button>
+            <button id="all" class="filter-button active-filter">
+                All Courses
+            </button>
 
-<button id="wdd">WDD Courses</button>
+            <button id="wdd" class="filter-button">
+                WDD Courses
+            </button>
 
-<button id="cse">CSE Courses</button>
+            <button id="cse" class="filter-button">
+                CSE Courses
+            </button>
 
-</div>
+        </div>
 
-<div id="courses"></div>
+        <p class="credits">
+            Credits displayed:
+            <span id="credits">0</span>
+        </p>
 
-<p id="credits"></p>
+        <div id="courses" class="course-grid">
+            <!-- JavaScript inserts courses here -->
+        </div>
 
-</section>
+    </section>
 
 </main>
 
+
 <footer>
 
-<div class="social">
+    <div class="social-links">
 
-<a href="https://github.com/believeegwabor-creator" target="_blank">
-<img src="images/github.png" alt="GitHub profile">
-</a>
+        <a href="https://github.com/believeegwabor-creator"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub profile">
 
-<a href="https://linkedin.com/" target="_blank">
-<img src="images/linkedin.png" alt="LinkedIn profile">
-</a>
+            <img src="images/github.png"
+                alt="GitHub"
+                width="40"
+                height="40">
+        </a>
 
-<a href="https://facebook.com/" target="_blank">
-<img src="images/facebook.png" alt="Facebook profile"> 
-</a>
 
-</div>
+        <a href="https://www.linkedin.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn profile">
 
-<p>
-&copy;
-<span id="currentyear"></span>
-Believe Egwabor | Nigeria
-</p>
+            <img src="images/linkedin.png"
+                alt="LinkedIn"
+                width="40"
+                height="40">
+        </a>
 
-<p id="lastModified"></p>
+
+        <a href="https://www.facebook.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook profile">
+
+            <img src="images/facebook.png"
+                alt="Facebook"
+                width="40"
+                height="40">
+        </a>
+
+    </div>
+
+
+    <p>
+        &copy;
+        <span id="currentyear"></span>
+        Believe Egwabor | Nigeria
+    </p>
+
+
+    <p id="lastModified"></p>
 
 </footer>
 
