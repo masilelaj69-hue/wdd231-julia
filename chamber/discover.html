@@ -5,180 +5,190 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Discover | Lagos Chamber of Commerce</title>
+    <title>Discover | Teton Chamber of Commerce</title>
 
     <meta name="description"
-        content="Discover attractions, culture, history, and places of interest in Lagos, Nigeria.">
+        content="Discover places, activities, and community opportunities in the Teton area.">
 
-    <meta name="author" content="Believe Egwabor">
+    <meta name="author" content="Julia Masilela">
 
-    <meta property="og:title" content="Discover Lagos with the Chamber of Commerce">
-    <meta property="og:description"
-        content="Explore the top attractions and places of interest in Lagos.">
-    <meta property="og:image"
-        content="https://believeegwabor-creator.github.io/wdd231/chamber/images/og-image.png">
-    <meta property="og:url"
-        content="https://believeegwabor-creator.github.io/wdd231/chamber/discover.html">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/larger.css">
 
-    <link rel="icon" href="images/favicon.ico">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/small.css">
-    <link rel="stylesheet" href="styles/larger.css">
-
-    <script src="scripts/navigation.js" defer></script>
-    <script type="module" src="scripts/discover.js"></script>
-
+    <script src="js/main.js" defer></script>
 </head>
 
 <body>
 
-<header>
+    <header>
 
-    <div class="logo-container">
+        <div class="header-container">
 
-        <img src="images/logo.png"
-            alt="Lagos Chamber of Commerce Logo"
-            width="80"
-            height="80">
+            <a href="index.html" class="logo">
+                <span>TC</span>
 
-        <div>
-            <p class="site-title">Lagos Chamber of Commerce</p>
-            <p>Connecting Businesses Across Lagos</p>
+                <div>
+                    <h1>Teton Chamber</h1>
+                    <p>Connecting Businesses &amp; Community</p>
+                </div>
+            </a>
+
+            <button id="menu-button" aria-label="Open navigation menu">
+                ☰
+            </button>
+
+            <nav id="primary-navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="directory.html">Directory</a></li>
+                    <li><a href="join.html">Join</a></li>
+                    <li><a href="discover.html">Discover</a></li>
+                </ul>
+            </nav>
+
         </div>
 
-    </div>
+    </header>
 
-    <button id="menu-button" aria-label="Menu">
-        ☰
-    </button>
+    <main>
 
-    <nav class="navigation">
+        <section class="page-heading">
 
-        <ul>
-
-            <li><a href="index.html">Home</a></li>
-
-            <li><a href="directory.html">Directory</a></li>
-
-            <li><a href="join.html">Join</a></li>
-
-            <li><a href="discover.html" class="active">Discover</a></li>
-
-        </ul>
-
-    </nav>
-
-</header>
-
-<main>
-
-<section class="page-header">
-
-    <h1>Discover Lagos</h1>
-
-    <p>
-        Explore some of the most popular attractions,
-        cultural centers, beaches, and landmarks
-        around Lagos State.
-    </p>
-
-</section>
-
-<div id="visitor-message"
-     class="visitor-message">
-</div>
-
-</section>
-
-<div id="discover-grid"
-     class="discover-grid">
-</div>
-
-</section>
-
-</main>
-
-<footer>
-
-    <div class="footer-content">
-
-        <section>
-
-            <h2>Lagos Chamber of Commerce</h2>
-
-            <p>109 Marina Road</p>
-
-            <p>Lagos, Nigeria</p>
-
-            <p>info@lagoschamber.org</p>
-
-            <p>+234 800 123 4567</p>
-
-        </section>
-
-        <section class="social-links">
-
-            <a href="https://facebook.com"
-                target="_blank"
-                rel="noopener">
-
-                <img src="images/facebook.png"
-                    alt="Facebook icon"
-                    width="40"
-                    height="40">
-
-            </a>
-
-            <a href="https://instagram.com"
-                target="_blank"
-                rel="noopener">
-
-                <img src="images/instagram.png"
-                    alt="Instagram icon"
-                    width="40"
-                    height="40">
-
-            </a>
-
-            <a href="https://linkedin.com"
-                target="_blank"
-                rel="noopener">
-
-                <img src="images/linkedin.png"
-                    alt="LinkedIn icon"
-                    width="40"
-                    height="40">
-
-            </a>
-
-        </section>
-
-        <section>
-
-            <p>&copy; <span id="currentYear"></span> Lagos Chamber of Commerce</p>
-
-            <p>Believe Egwabor</p>
-
-            <p>WDD231 Project</p>
+            <h2>Discover Teton</h2>
 
             <p>
-                Last Modified:
-                <span id="lastModified"></span>
+                Explore local attractions, community activities,
+                and places of interest in the Teton area.
             </p>
 
         </section>
 
-    </div>
+        <section class="discover-grid">
 
-</footer>
+            <article class="discover-card">
+                <div class="discover-image">
+                    <span>🏔️</span>
+                </div>
+
+                <div>
+                    <h2>Mountain Adventures</h2>
+                    <p>
+                        Enjoy outdoor activities and beautiful
+                        mountain scenery around the Teton area.
+                    </p>
+                </div>
+            </article>
+
+            <article class="discover-card">
+                <div class="discover-image">
+                    <span>🌲</span>
+                </div>
+
+                <div>
+                    <h2>Nature and Parks</h2>
+                    <p>
+                        Discover parks, trails, and natural spaces
+                        for recreation and relaxation.
+                    </p>
+                </div>
+            </article>
+
+            <article class="discover-card">
+                <div class="discover-image">
+                    <span>🏘️</span>
+                </div>
+
+                <div>
+                    <h2>Community</h2>
+                    <p>
+                        Connect with local organizations and
+                        community activities.
+                    </p>
+                </div>
+            </article>
+
+            <article class="discover-card">
+                <div class="discover-image">
+                    <span>🛍️</span>
+                </div>
+
+                <div>
+                    <h2>Local Businesses</h2>
+                    <p>
+                        Support local businesses and discover
+                        products and services in the community.
+                    </p>
+                </div>
+            </article>
+
+            <article class="discover-card">
+                <div class="discover-image">
+                    <span>🎉</span>
+                </div>
+
+                <div>
+                    <h2>Local Events</h2>
+                    <p>
+                        Find events and activities that bring
+                        businesses and community members together.
+                    </p>
+                </div>
+            </article>
+
+            <article class="discover-card">
+                <div class="discover-image">
+                    <span>🤝</span>
+                </div>
+
+                <div>
+                    <h2>Business Connections</h2>
+                    <p>
+                        Build relationships and find opportunities
+                        to connect with other local businesses.
+                    </p>
+                </div>
+            </article>
+
+        </section>
+
+        <p id="visit-message"></p>
+
+    </main>
+
+    <footer>
+
+        <div class="footer-content">
+
+            <section>
+                <h2>Teton Chamber of Commerce</h2>
+                <p>Supporting local businesses and our community.</p>
+            </section>
+
+            <section>
+                <h2>Contact</h2>
+                <p>Teton Chamber of Commerce</p>
+                <p>Email: info@tetonchamber.org</p>
+            </section>
+
+            <section>
+                <p>
+                    &copy;
+                    <span id="current-year"></span>
+                    Julia Masilela
+                </p>
+
+                <p>WDD 231</p>
+
+                <p>
+                    Last Modified:
+                    <span id="last-modified"></span>
+                </p>
+            </section>
+
+        </div>
+
+    </footer>
 
 </body>
+
 </html>
