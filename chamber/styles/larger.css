@@ -1,49 +1,73 @@
-/* =========================
-   LARGE SCREEN STYLES
-   ========================= */
+/* ================================
+   TETON CHAMBER - LARGE SCREEN
+================================ */
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
 
-    #menu-button {
-        display: none;
+    .header-container {
+        padding: 1.2rem 2rem;
     }
 
-    nav {
-        width: auto;
+    .logo h1 {
+        font-size: 1.7rem;
     }
 
-    nav ul {
-        display: flex;
-        margin: 0;
-        gap: 0.5rem;
+    .hero {
+        min-height: 600px;
     }
 
-    nav li {
-        border: none;
-    }
-
-    nav a {
-        padding: 0.75rem 1rem;
-        border-radius: 5px;
-    }
-
-    nav a:hover,
-    nav a:focus {
-        background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .home-section {
-        grid-template-columns: repeat(3, 1fr);
-        padding: 3rem 1rem;
+    .hero-content {
+        padding: 3rem;
     }
 
     .hero h2 {
-        font-size: 3rem;
+        font-size: 3.8rem;
     }
 
-    .footer-content {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
+    .hero-content > p:not(.hero-label) {
+        font-size: 1.25rem;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .intro {
+        padding-top: 5rem;
+    }
+
+    .intro h2 {
+        font-size: 2.5rem;
+    }
+
+    .home-section {
+        padding-top: 3rem;
+    }
+
+    .card {
+        min-height: 270px;
+        transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+    }
+
+    .business-card {
+        transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .business-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+    }
+
+    .business-card img {
+        height: 240px;
+    }
+
+    .home-cta {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
     }
 }
