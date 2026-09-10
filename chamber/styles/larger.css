@@ -12,8 +12,10 @@
         font-size: 1.7rem;
     }
 
+    /* HERO */
+
     .hero {
-        min-height: 600px;
+        min-height: 450px;
     }
 
     .hero-content {
@@ -21,7 +23,7 @@
     }
 
     .hero h2 {
-        font-size: 3.8rem;
+        font-size: 3.5rem;
     }
 
     .hero-content > p:not(.hero-label) {
@@ -31,6 +33,8 @@
         margin-right: auto;
     }
 
+    /* INTRO */
+
     .intro {
         padding-top: 5rem;
     }
@@ -39,32 +43,38 @@
         font-size: 2.5rem;
     }
 
+    /* CARDS */
+
     .home-section {
         padding-top: 3rem;
     }
 
     .card {
         min-height: 270px;
-        transition: transform .2s ease, box-shadow .2s ease;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .card:hover {
         transform: translateY(-6px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
 
+    /* BUSINESS CARDS */
+
     .business-card {
-        transition: transform .2s ease, box-shadow .2s ease;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .business-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
 
     .business-card img {
         height: 240px;
     }
+
+    /* CTA */
 
     .home-cta {
         margin-top: 5rem;
