@@ -1,83 +1,190 @@
-/* ================================
-   TETON CHAMBER - LARGE SCREEN
-================================ */
+/* ===========================================
+   LARGE SCREEN STYLES
+   768px and above
+=========================================== */
 
-@media (min-width: 900px) {
+@media screen and (min-width: 768px) {
+
+    /* HEADER */
 
     .header-container {
-        padding: 1.2rem 2rem;
+        padding: 1rem 2rem;
     }
 
-    .logo h1 {
-        font-size: 1.7rem;
+    #menu-button {
+        display: none;
+    }
+
+    nav {
+        display: block;
+        width: auto;
+    }
+
+    .navigation {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    .navigation a {
+        padding: 0.75rem 1rem;
+        border-radius: 5px;
+    }
+
+    .navigation a:hover {
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* PAGE HEADER */
+
+    .page-header {
+        padding: 2rem 0;
+    }
+
+    .page-header h1,
+    .page-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .page-header p {
+        max-width: 700px;
+        margin: auto;
+    }
+
+    /* VIEW CONTROLS */
+
+    .view-controls {
+        justify-content: flex-end;
+    }
+
+    /* DIRECTORY GRID */
+
+    .grid-view {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    /* MEMBER CARD */
+
+    .member-card {
+        padding: 1.5rem;
+    }
+
+    .member-card img {
+        width: 140px;
+    }
+
+    /* LIST VIEW */
+
+    .list-view {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .list-view .member-card {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 1rem 1.5rem;
+        align-items: center;
+        text-align: left;
+        padding: 1rem 1.5rem;
+    }
+
+    .list-view .member-card img {
+        grid-row: span 6;
+        width: 100px;
+        margin: 0;
+    }
+
+    .list-view .member-card h3 {
+        margin: 0;
+    }
+
+    /* FOOTER */
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        text-align: left;
+    }
+
+    .social-links {
+        justify-content: center;
     }
 
     /* HERO */
 
     .hero {
-        min-height: 450px;
+        position: relative;
     }
 
     .hero-content {
-        padding: 3rem;
+        position: absolute;
+        top: 50%;
+        left: 8%;
+        transform: translateY(-50%);
+        max-width: 500px;
     }
 
-    .hero h2 {
-        font-size: 3.5rem;
+    /* HOME PAGE */
+
+    .home-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
     }
 
-    .hero-content > p:not(.hero-label) {
-        font-size: 1.25rem;
-        max-width: 650px;
-        margin-left: auto;
-        margin-right: auto;
+    /* SPOTLIGHTS */
+
+    .spotlight-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 
-    /* INTRO */
+    /* JOIN PAGE */
 
-    .intro {
-        padding-top: 5rem;
+    .join-layout {
+        grid-template-columns: 2fr 1fr;
+        align-items: start;
+    }
+}
+
+
+/* ===========================================
+   DISCOVER PAGE
+=========================================== */
+
+@media screen and (min-width: 641px) {
+
+    .discover-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        grid-template-areas:
+            "card1 card2"
+            "card3 card4"
+            "card5 card6"
+            "card7 card8";
+    }
+}
+
+
+/* ===========================================
+   LARGE DESKTOP DISCOVER
+=========================================== */
+
+@media screen and (min-width: 1025px) {
+
+    .discover-grid {
+        grid-template-columns: repeat(4, 1fr);
+
+        grid-template-areas:
+            "card1 card2 card3 card4"
+            "card5 card6 card7 card8";
     }
 
-    .intro h2 {
-        font-size: 2.5rem;
-    }
-
-    /* CARDS */
-
-    .home-section {
-        padding-top: 3rem;
-    }
-
-    .card {
-        min-height: 270px;
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    /* BUSINESS CARDS */
-
-    .business-card {
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .business-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .business-card img {
-        height: 240px;
-    }
-
-    /* CTA */
-
-    .home-cta {
-        margin-top: 5rem;
-        margin-bottom: 5rem;
+    .discover-card img:hover {
+        transform: scale(1.05);
+        filter: brightness(1.1);
+        transition: 0.3s ease;
     }
 }
