@@ -10,7 +10,7 @@ body {
     margin: 0;
     font-family: "Roboto", sans-serif;
     line-height: 1.6;
-    color: #222;
+    color: #1f2937;
     background-color: #f4f4f4;
 }
 
@@ -20,17 +20,20 @@ img {
 }
 
 h1,
-h2 {
-    margin-top: 0;
+h2,
+h3 {
+    font-family: "Poppins", sans-serif;
 }
 
 h1 {
-    color: #1e3a8a;
+    color: #163b6d;
+    margin-top: 0;
     margin-bottom: 1rem;
 }
 
 h2 {
-    color: #1e3a8a;
+    color: #163b6d;
+    margin-top: 0;
 }
 
 p {
@@ -43,29 +46,29 @@ p {
 ========================= */
 
 header {
-    background-color: #1e3a8a;
-    color: white;
+    background-color: #163b6d;
+    color: #ffffff;
+    padding: 1rem;
 }
 
-.site-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem 1rem;
-}
-
-.brand {
+.profile {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    font-size: 1.2rem;
-    font-weight: 700;
+    gap: 1rem;
 }
 
-.brand img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
+.profile img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+}
+
+.profile h1 {
+    color: #ffffff;
+    margin: 0;
+    font-size: 1.4rem;
 }
 
 
@@ -74,16 +77,21 @@ header {
 ========================= */
 
 .menu-button {
+    display: block;
+    margin-left: auto;
+    margin-top: -3.5rem;
     border: none;
-    background: transparent;
-    color: white;
+    background-color: transparent;
+    color: #ffffff;
     font-size: 2rem;
     cursor: pointer;
     padding: 0.25rem 0.5rem;
 }
 
-.menu-button:hover {
-    background-color: #16316f;
+.menu-button:hover,
+.menu-button:focus {
+    background-color: #f59e0b;
+    color: #111827;
 }
 
 
@@ -101,30 +109,27 @@ nav.open {
 
 nav ul {
     list-style: none;
-    margin: 0;
+    margin: 1rem 0 0;
     padding: 0;
 }
 
 nav li {
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid #ffffff;
 }
 
 nav a {
     display: block;
     padding: 0.9rem 1rem;
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 500;
 }
 
-nav a:hover {
-    background-color: #fbbf24;
-    color: #111;
-}
-
+nav a:hover,
+nav a:focus,
 nav a.active {
-    background-color: #fbbf24;
-    color: #111;
+    background-color: #f59e0b;
+    color: #111827;
 }
 
 
@@ -144,44 +149,41 @@ main > h1 {
 
 
 /* =========================
-   HOME GRID
-========================= */
-
-.home-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-}
-
-
-/* =========================
    CARDS
 ========================= */
 
 .card {
-    background-color: white;
-    border: 1px solid #ddd;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
     border-radius: 8px;
     padding: 1rem;
+    margin-bottom: 1rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
 }
 
-.student-card {
+
+/* =========================
+   STUDENT PROFILE
+========================= */
+
+.student-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    gap: 1rem;
 }
 
-.profile {
-    display: block;
+.student-profile img {
     width: 180px;
     height: 180px;
     object-fit: cover;
-    margin: 0 auto;
     border-radius: 8px;
 }
 
 
 /* =========================
-   COURSE FILTER BUTTONS
+   COURSE BUTTONS
 ========================= */
 
 .course-buttons {
@@ -191,24 +193,25 @@ main > h1 {
     margin-bottom: 1rem;
 }
 
-.filter-button {
+.course-buttons button {
     padding: 0.75rem 1rem;
-    border: 2px solid #1e3a8a;
+    border: 2px solid #163b6d;
     border-radius: 5px;
-    background-color: white;
-    color: #1e3a8a;
+    background-color: #ffffff;
+    color: #163b6d;
     font-weight: 700;
     cursor: pointer;
 }
 
-.filter-button:hover {
-    background-color: #fbbf24;
-    color: #111;
+.course-buttons button:hover,
+.course-buttons button:focus {
+    background-color: #f59e0b;
+    color: #111827;
 }
 
-.filter-button.active-filter {
-    background-color: #1e3a8a;
-    color: white;
+.course-buttons button.active-filter {
+    background-color: #163b6d;
+    color: #ffffff;
 }
 
 
@@ -216,7 +219,7 @@ main > h1 {
    CREDITS
 ========================= */
 
-.credits {
+#creditDisplay {
     font-weight: 700;
     margin-bottom: 1rem;
 }
@@ -233,7 +236,7 @@ main > h1 {
 }
 
 .course-card {
-    border: 2px solid #1e3a8a;
+    border: 2px solid #163b6d;
     border-radius: 6px;
     padding: 1rem;
     background-color: #f8fafc;
@@ -241,7 +244,7 @@ main > h1 {
 
 .course-card h3 {
     margin: 0 0 0.5rem;
-    color: #1e3a8a;
+    color: #163b6d;
 }
 
 .course-card p {
@@ -254,7 +257,7 @@ main > h1 {
 }
 
 .course-card.completed h3 {
-    color: #237a3b;
+    color: #17652e;
 }
 
 .completed-label {
@@ -262,8 +265,8 @@ main > h1 {
     margin-top: 0.5rem;
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
-    background-color: #237a3b;
-    color: white;
+    background-color: #17652e;
+    color: #ffffff;
     font-size: 0.85rem;
     font-weight: 700;
 }
@@ -277,8 +280,8 @@ footer {
     margin-top: 2rem;
     padding: 2rem 1rem;
     text-align: center;
-    background-color: #1e3a8a;
-    color: white;
+    background-color: #163b6d;
+    color: #ffffff;
 }
 
 .social-links {
@@ -289,17 +292,13 @@ footer {
 }
 
 .social-links a {
-    display: inline-block;
+    color: #ffffff;
+    font-weight: 700;
 }
 
-.social-links img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-}
-
-.social-links a:hover {
-    transform: scale(1.1);
+.social-links a:hover,
+.social-links a:focus {
+    color: #f59e0b;
 }
 
 footer p {

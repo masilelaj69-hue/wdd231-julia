@@ -4,23 +4,16 @@
 
 @media screen and (min-width: 700px) {
 
-    .site-header {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 1rem;
-    }
-
-
-    /* Hide hamburger */
+    /* Hide hamburger on desktop */
     .menu-button {
         display: none;
     }
-
 
     /* Show navigation */
     nav {
         display: block;
         background-color: #111827;
+        margin: 1rem -1rem -1rem;
     }
 
     nav ul {
@@ -38,19 +31,17 @@
         padding: 1rem 1.5rem;
     }
 
-
     /* Main */
     main {
         padding: 2rem;
     }
 
-
-    /* Two-column layout */
-    .home-grid {
-        grid-template-columns: 2fr 1fr;
-        align-items: stretch;
+    /* Student profile */
+    .student-profile {
+        flex-direction: row;
+        text-align: left;
+        justify-content: center;
     }
-
 
     /* Course buttons */
     .course-buttons {
@@ -58,16 +49,14 @@
         justify-content: center;
     }
 
-    .filter-button {
+    .course-buttons button {
         min-width: 150px;
     }
-
 
     /* Course cards */
     .course-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-
 
     /* Footer */
     footer {
@@ -82,12 +71,12 @@
 
 @media screen and (min-width: 1000px) {
 
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
     .course-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-
-    .home-grid {
-        grid-template-columns: 2fr 1fr;
-    }
-
 }

@@ -2,7 +2,6 @@ const menuButton = document.querySelector("#menu");
 const navMenu = document.querySelector("#navMenu");
 
 menuButton.addEventListener("click", () => {
-
     const isOpen = navMenu.classList.toggle("open");
 
     menuButton.setAttribute("aria-expanded", isOpen);
@@ -14,5 +13,4 @@ menuButton.addEventListener("click", () => {
         menuButton.setAttribute("aria-label", "Open navigation menu");
         menuButton.textContent = "☰";
     }
-
 });
