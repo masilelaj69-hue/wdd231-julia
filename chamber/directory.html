@@ -1,39 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Business Directory | Teton Chamber of Commerce</title>
 
-    <meta name="description"
-        content="Explore businesses that are members of the Teton Chamber of Commerce. Find local businesses, contact information, and membership details.">
-
+    <meta name="description" content="Explore businesses that are members of the Teton Chamber of Commerce.">
     <meta name="author" content="Julia Masilela">
 
-    <!-- Favicon -->
     <link rel="icon" href="images/favicon.ico">
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Teton Chamber of Commerce Business Directory">
-    <meta property="og:description"
-        content="Explore local businesses and members of the Teton Chamber of Commerce.">
-    <meta property="og:image"
-        content="https://masilelaj69-hue.github.io/wdd231-1/chamber/images/hero.webp">
-    <meta property="og:url"
-        content="https://masilelaj69-hue.github.io/wdd231-1/chamber/directory.html">
+    <meta property="og:description" content="Explore local businesses and members of the Teton Chamber of Commerce.">
+    <meta property="og:image" content="images/hero.webp">
+    <meta property="og:url" content="https://masilelaj69-hue.github.io/wdd231-julia/chamber/directory.html">
     <meta property="og:type" content="website">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap"
-        rel="stylesheet">
-
-    <!-- CSS -->
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/small.css">
     <link rel="stylesheet" href="styles/larger.css">
@@ -41,170 +24,103 @@
 
 <body>
 
-    <header>
+<header>
+    <div class="header-container">
 
-        <div class="header-container">
+        <a href="index.html" class="logo">
+            <img src="images/hero.webp"
+                 alt="Teton Chamber of Commerce"
+                 width="60"
+                 height="60">
 
-            <a href="index.html" class="logo">
+            <div class="logo-text">
+                <h2>Teton Chamber</h2>
+                <p>Connecting Businesses &amp; Community</p>
+            </div>
+        </a>
 
-                <img
-                    src="images/hero.webp"
-                    alt="Teton Chamber of Commerce"
-                    width="60"
-                    height="60">
-
-                <div class="logo-text">
-
-                    <h2>Teton Chamber</h2>
-
-                    <p>Connecting Businesses &amp; Community</p>
-
-                </div>
-
-            </a>
-
-            <button
-                id="menu-button"
+        <button id="menu-button"
                 aria-label="Open navigation menu"
                 aria-expanded="false"
                 aria-controls="primary-navigation">
+            ☰
+        </button>
 
-                ☰
+        <nav id="primary-navigation">
+            <ul class="navigation">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="directory.html" class="active">Directory</a></li>
+                <li><a href="join.html">Join</a></li>
+                <li><a href="discover.html">Discover</a></li>
+            </ul>
+        </nav>
 
-            </button>
+    </div>
+</header>
 
-            <nav id="primary-navigation">
+<main>
 
-                <ul class="navigation">
+    <section class="page-header">
+        <h1>Business Directory</h1>
+        <p>
+            Discover local businesses and members of the
+            Teton Chamber of Commerce.
+        </p>
+    </section>
 
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
+    <section class="view-controls">
+        <h2 class="visually-hidden">Directory View Controls</h2>
 
-                    <li>
-                        <a href="directory.html" class="active">Directory</a>
-                    </li>
+        <button id="grid-view" type="button">
+            Grid
+        </button>
 
-                    <li>
-                        <a href="join.html">Join</a>
-                    </li>
+        <button id="list-view" type="button">
+            List
+        </button>
+    </section>
 
-                    <li>
-                        <a href="discover.html">Discover</a>
-                    </li>
+    <section id="members-container" class="grid-view">
+        <!-- Businesses will load here -->
+    </section>
 
-                </ul>
+</main>
 
-            </nav>
+<footer>
 
-        </div>
+    <div class="footer-content">
 
-    </header>
+        <section>
+            <h3>Teton Chamber of Commerce</h3>
+            <p>Teton, Idaho</p>
+            <p>info@tetonchamber.org</p>
+            <p>208-555-0100</p>
+        </section>
 
-    <main>
+        <section class="social-links">
+            <a href="#" aria-label="Facebook">Facebook</a>
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="LinkedIn">LinkedIn</a>
+        </section>
 
-        <section class="page-header">
-
-            <h1>Business Directory</h1>
-
+        <section>
             <p>
-                Discover local businesses and members of the
-                Teton Chamber of Commerce.
+                &copy;
+                <span id="current-year"></span>
+                Julia Masilela
             </p>
 
+            <p>WDD 231</p>
+
+            <p id="last-modified"></p>
         </section>
 
-        <section class="view-controls">
+    </div>
 
-            <h2 class="visually-hidden">
-                Directory View Controls
-            </h2>
+</footer>
 
-            <button
-                id="grid-view"
-                type="button"
-                aria-label="Display businesses in grid view">
-                Grid
-            </button>
-
-            <button
-                id="list-view"
-                type="button"
-                aria-label="Display businesses in list view">
-                List
-            </button>
-
-        </section>
-
-        <section
-            id="members-container"
-            class="grid-view">
-
-            <!-- JavaScript will generate member cards -->
-
-        </section>
-
-    </main>
-
-    <footer>
-
-        <div class="footer-content">
-
-            <section>
-
-                <h3>Teton Chamber of Commerce</h3>
-
-                <p>Teton, Idaho</p>
-
-                <p>info@tetonchamber.org</p>
-
-                <p>208-555-0100</p>
-
-            </section>
-
-            <section class="social-links">
-
-                <a href="#" aria-label="Facebook">
-                    <img
-                        src="images/facebook.png"
-                        alt="Facebook icon">
-                </a>
-
-                <a href="#" aria-label="Instagram">
-                    <img
-                        src="images/instagram.png"
-                        alt="Instagram icon">
-                </a>
-
-                <a href="#" aria-label="LinkedIn">
-                    <img
-                        src="images/linkedin.png"
-                        alt="LinkedIn icon">
-                </a>
-
-            </section>
-
-            <section>
-
-                <p>
-                    &copy;
-                    <span id="current-year"></span>
-                    Julia Masilela
-                </p>
-
-                <p>WDD 231</p>
-
-                <p id="last-modified"></p>
-
-            </section>
-
-        </div>
-
-    </footer>
-
-    <script src="scripts/navigation.js" defer></script>
-    <script src="scripts/directory.js" defer></script>
+<script src="scripts/navigation.js" defer></script>
+<script src="scripts/directory.js" defer></script>
 
 </body>
-
 </html>
