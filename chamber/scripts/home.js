@@ -1,191 +1,202 @@
-// ======================================
-// HOME.JS
-// WDD 231 - Chamber Home Page
-// ======================================
+const apiKey = "YOUR_OPENWEATHER_API_KEY";
 
-// ===============================
-// Footer Information
-// ===============================
+const weatherURL =
+    `https://api.openweathermap.org/data/2.5/weather?q=Teton,US&units=imperial&appid=${apiKey}`;
 
-const currentYear = document.querySelector("#current-year");
-const lastModified = document.querySelector("#last-modified");
+const forecastURL =
+    `https://api.openweathermap.org/data/2.5/forecast?q=Teton,US&units=imperial&appid=${apiKey}`;
 
-currentYear.textContent = new Date().getFullYear();
-lastModified.textContent = `Last Modification: ${document.lastModified}`;
-
-// ===============================
-// Weather API
-// ===============================
-
-const apiKey = "92c9dcfbeeaf1279b96bea22a071d2cf";
-
-const latitude = 6.5244;
-const longitude = 3.3792;
 
 async function getWeather() {
 
     try {
 
-        const currentUrl =
-            `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+        const response = await fetch(weatherURL);
 
-        const forecastUrl =
-            `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-
-        const currentResponse = await fetch(currentUrl);
-        const forecastResponse = await fetch(forecastUrl);
-
-        if (!currentResponse.ok || !forecastResponse.ok) {
-            throw new Error("Unable to load weather data.");
+        if (!response.ok) {
+            throw new Error("Weather request failed");
         }
 
-        const currentData = await currentResponse.json();
-        const forecastData = await forecastResponse.json();
+        const weather = await response.json();
 
-        displayCurrentWeather(currentData);
-        displayForecast(forecastData);
+        document.querySelector("#current-weather").innerHTML = `
+            <h3>Current Weather</h3>
+
+            <img
+                src="https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png"
+                alt="${weather.weather[0].description}">
+
+            <p class="temperature">
+                ${Math.round(weather.main.temp)}°F
+            </p>
+
+            <p>
+                ${weather.weather[0].description}
+            </p>
+
+            <p>
+                High: ${Math.round(weather.main.temp_max)}°F
+            </p>
+
+            <p>
+                Low: ${Math.round(weather.main.temp_min)}°F
+            </p>
+        `;
 
     } catch (error) {
 
-        console.error("Weather Error:", error);
-
-        document.querySelector("#weather").innerHTML =
-            "<p>Weather information is currently unavailable.</p>";
-
-    }
-
-}
-
-function displayCurrentWeather(data) {
-
-    document.querySelector("#current-temp").textContent =
-        `${Math.round(data.main.temp)}°C`;
-
-    document.querySelector("#weather-description").textContent =
-        data.weather[0].description;
-
-    const icon = document.querySelector("#weather-icon");
-
-    icon.src =
-        `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-
-    icon.alt = data.weather[0].description;
-
-}
-
-function displayForecast(data) {
-
-    const forecast = document.querySelector("#forecast");
-
-    forecast.innerHTML = "";
-
-    const dailyForecast = data.list.filter(item =>
-        item.dt_txt.includes("12:00:00")
-    );
-
-    dailyForecast.slice(0, 3).forEach(day => {
-
-        const date = new Date(day.dt_txt);
-
-        const forecastItem = document.createElement("p");
-
-        forecastItem.innerHTML = `
-            <strong>${date.toLocaleDateString("en-US", {
-                weekday: "short"
-            })}</strong>: ${Math.round(day.main.temp)}°C
+        document.querySelector("#current-weather").innerHTML = `
+            <h3>Current Weather</h3>
+            <p>Weather information is currently unavailable.</p>
         `;
 
-        forecast.appendChild(forecastItem);
-
-    });
-
+        console.error(error);
+    }
 }
- 
-async function getSpotlights() {
+
+
+async function getForecast() {
 
     try {
 
-        const response = await fetch("data/members.json");
+        const response = await fetch(forecastURL);
 
         if (!response.ok) {
-            throw new Error("Unable to load members.");
+            throw new Error("Forecast request failed");
+        }
+
+        const data = await response.json();
+
+        const days = data.list
+            .filter(item => item.dt_txt.includes("12:00:00"))
+            .slice(0, 3);
+
+        document.querySelector("#weather-forecast").innerHTML = `
+            <h3>3-Day Forecast</h3>
+
+            <div class="forecast-grid">
+
+                ${days.map(day => `
+
+                    <article>
+
+                        <h4>
+                            ${new Date(day.dt_txt).toLocaleDateString(
+                                "en-US",
+                                { weekday: "long" }
+                            )}
+                        </h4>
+
+                        <p>
+                            ${Math.round(day.main.temp)}°F
+                        </p>
+
+                        <p>
+                            ${day.weather[0].description}
+                        </p>
+
+                    </article>
+
+                `).join("")}
+
+            </div>
+        `;
+
+    } catch (error) {
+
+        document.querySelector("#weather-forecast").innerHTML = `
+            <h3>3-Day Forecast</h3>
+            <p>Forecast information is currently unavailable.</p>
+        `;
+
+        console.error(error);
+    }
+}
+
+
+async function getMembers() {
+
+    try {
+
+        const response = await fetch("../chamber/data/members.json");
+
+        if (!response.ok) {
+            throw new Error("Member data could not be loaded");
         }
 
         const members = await response.json();
 
-        displaySpotlights(members);
+        const qualifiedMembers = members.filter(
+            member =>
+                member.membership === 2 ||
+                member.membership === 3
+        );
+
+        const selectedMembers =
+            qualifiedMembers
+                .sort(() => Math.random() - 0.5)
+                .slice(0, 3);
+
+        const container =
+            document.querySelector("#business-spotlights");
+
+        container.innerHTML = `
+            <h2>Business Spotlights</h2>
+
+            <div class="spotlight-grid">
+
+                ${selectedMembers.map(member => `
+
+                    <article class="member-card">
+
+                        <img
+                            src="images/${member.image}"
+                            alt="${member.name}"
+                            loading="lazy">
+
+                        <h3>${member.name}</h3>
+
+                        <p>${member.description}</p>
+
+                        <p>${member.address}</p>
+
+                        <p>${member.phone}</p>
+
+                        <p>
+                            Membership:
+                            ${member.membership === 3
+                                ? "Gold"
+                                : "Silver"}
+                        </p>
+
+                        <a
+                            href="${member.website}"
+                            target="_blank"
+                            rel="noopener">
+                            Visit Website
+                        </a>
+
+                    </article>
+
+                `).join("")}
+
+            </div>
+        `;
 
     } catch (error) {
 
         console.error(error);
 
-    }
-
-}
-
-function displaySpotlights(members) {
-
-    const container = document.querySelector("#spotlight-container");
-
-    container.innerHTML = "";
-
-    // Gold and Silver members only
-
-    const qualifiedMembers = members.filter(member =>
-        member.membership === 2 || member.membership === 3
-    );
-
-    // Shuffle randomly
-
-    qualifiedMembers.sort(() => Math.random() - 0.5);
-
-    // Display 3 members
-
-    qualifiedMembers.slice(0, 3).forEach(member => {
-
-        const card = document.createElement("section");
-
-        card.classList.add("member-card");
-
-        card.innerHTML = `
-
-            <img
-                src="images/${member.image}"
-                alt="${member.name} Logo"
-                loading="lazy">
-
-            <h3>${member.name}</h3>
-
-            <p><strong>Industry:</strong> ${member.industry}</p>
-
-            <p><strong>Phone:</strong> ${member.phone}</p>
-
-            <p><strong>Address:</strong> ${member.address}</p>
-
-            <p><strong>Membership:</strong>
-                ${member.membership === 3 ? "🥇 Gold" : "🥈 Silver"}
-            </p>
-
-            <a
-                href="${member.website}"
-                target="_blank"
-                rel="noopener">
-
-                Visit Website
-
-            </a>
-
+        document.querySelector(
+            "#business-spotlights"
+        ).innerHTML = `
+            <h2>Business Spotlights</h2>
+            <p>Business information is currently unavailable.</p>
         `;
-
-        container.appendChild(card);
-
-    });
-
+    }
 }
 
-// ===============================
-// Initialize
-// ===============================
 
 getWeather();
-getSpotlights();
+getForecast();
+getMembers();
