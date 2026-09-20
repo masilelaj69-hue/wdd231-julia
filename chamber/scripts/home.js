@@ -26,9 +26,20 @@ const weatherDescriptions = {
 };
 
 
+/* =========================
+   WEATHER
+========================= */
+
 async function getWeather() {
-    const currentWeather = document.querySelector("#current-weather");
-    const forecastContainer = document.querySelector("#weather-forecast");
+    const currentWeather =
+        document.querySelector("#current-weather");
+
+    const forecastContainer =
+        document.querySelector("#weather-forecast");
+
+    if (!currentWeather || !forecastContainer) {
+        return;
+    }
 
     try {
         const response = await fetch(weatherURL);
@@ -39,8 +50,11 @@ async function getWeather() {
 
         const data = await response.json();
 
-        const currentTemp = Math.round(data.current.temperature_2m);
-        const currentCode = data.current.weather_code;
+        const currentTemp =
+            Math.round(data.current.temperature_2m);
+
+        const currentCode =
+            data.current.weather_code;
 
         currentWeather.innerHTML = `
             <h3>Current Weather</h3>
@@ -54,15 +68,22 @@ async function getWeather() {
         `;
 
         for (let i = 0; i < 3; i++) {
-            const date = new Date(data.daily.time[i] + "T12:00:00");
+            const date =
+                new Date(data.daily.time[i] + "T12:00:00");
 
-            const dayName = date.toLocaleDateString("en-US", {
-                weekday: "long"
-            });
+            const dayName =
+                date.toLocaleDateString("en-US", {
+                    weekday: "long"
+                });
 
-            const high = Math.round(data.daily.temperature_2m_max[i]);
-            const low = Math.round(data.daily.temperature_2m_min[i]);
-            const code = data.daily.weather_code[i];
+            const high =
+                Math.round(data.daily.temperature_2m_max[i]);
+
+            const low =
+                Math.round(data.daily.temperature_2m_min[i]);
+
+            const code =
+                data.daily.weather_code[i];
 
             forecastHTML += `
                 <article>
@@ -96,34 +117,60 @@ async function getWeather() {
 }
 
 
+/* =========================
+   BUSINESS SPOTLIGHTS
+========================= */
+
 async function getMembers() {
+
     const spotlightContainer =
         document.querySelector("#business-spotlights");
 
+    /* 
+       If the container does not exist,
+       do nothing instead of creating a JavaScript error.
+    */
+
+    if (!spotlightContainer) {
+        console.warn(
+            "Business spotlight container was not found."
+        );
+        return;
+    }
+
     try {
-        const response = await fetch("data/members.json");
+
+        const response =
+            await fetch("data/members.json");
 
         if (!response.ok) {
-            throw new Error("Member data could not be loaded");
+            throw new Error(
+                "Member data could not be loaded"
+            );
         }
 
-        const members = await response.json();
+        const members =
+            await response.json();
 
-        const qualifiedMembers = members.filter(
-            member =>
-                member.membership === 2 ||
-                member.membership === 3
-        );
+        const qualifiedMembers =
+            members.filter(
+                member =>
+                    member.membership === 2 ||
+                    member.membership === 3
+            );
 
-        const selectedMembers = qualifiedMembers
-            .sort(() => Math.random() - 0.5)
-            .slice(0, 3);
+        const selectedMembers =
+            qualifiedMembers
+                .sort(() => Math.random() - 0.5)
+                .slice(0, 3);
 
         spotlightContainer.innerHTML = `
             <h2>Business Spotlights</h2>
 
             <div class="spotlight-grid">
+
                 ${selectedMembers.map(member => `
+
                     <article class="member-card">
 
                         <img
@@ -134,7 +181,9 @@ async function getMembers() {
 
                         <h3>${member.name}</h3>
 
-                        <p>${member.description}</p>
+                        <p>
+                            ${member.description}
+                        </p>
 
                         <p>
                             <strong>Address:</strong>
@@ -148,9 +197,11 @@ async function getMembers() {
 
                         <p>
                             <strong>Membership:</strong>
-                            ${member.membership === 3
-                                ? "Gold"
-                                : "Silver"}
+                            ${
+                                member.membership === 3
+                                    ? "Gold"
+                                    : "Silver"
+                            }
                         </p>
 
                         <a
@@ -162,20 +213,29 @@ async function getMembers() {
                         </a>
 
                     </article>
+
                 `).join("")}
+
             </div>
         `;
 
     } catch (error) {
+
         console.error("Member error:", error);
 
         spotlightContainer.innerHTML = `
             <h2>Business Spotlights</h2>
-            <p>Business information is currently unavailable.</p>
+            <p>
+                Business information is currently unavailable.
+            </p>
         `;
     }
 }
 
+
+/* =========================
+   START
+========================= */
 
 getWeather();
 getMembers();
